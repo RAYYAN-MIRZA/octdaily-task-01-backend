@@ -7,14 +7,9 @@
     {
         [Route("FormApi/")]
         [ApiController]
-        public class ContactUsController : ControllerBase
+        public class FormController : ControllerBase
         {
-        [HttpGet]
-        public int Get()
-        {
-            return 9999;
-        }
-
+        
         [HttpPost("ContactUs")]    
         public IActionResult Post([FromBody] ContactUs FormContactUsData) {
 
@@ -30,21 +25,21 @@
                 }
             }
         
-            [HttpPost("ScheduleDemo")]
-            public IActionResult Post([FromBody] ScheduleDemo scheduleDemoObj)
+        [HttpPost("ScheduleDemo")]
+        public IActionResult Post([FromBody] ScheduleDemo scheduleDemoObj)
+        {
+            try
             {
-                try
-                {
-                    Console.WriteLine(scheduleDemoObj);
-                    return Ok(new { message = "Data received Successfulyy!" });
+                Console.WriteLine(scheduleDemoObj);
+                return Ok(new { message = "Data received Successfulyy!" });
 
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    return StatusCode(500, new { ex.Message });
-                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, new { ex.Message });
+            }
+        }
 
         }
     }
