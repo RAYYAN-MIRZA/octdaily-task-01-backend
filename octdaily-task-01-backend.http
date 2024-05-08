@@ -1,0 +1,6 @@
+@octdaily_task_01_backend_HostAddress = http://localhost:5189
+
+GET {{octdaily_task_01_backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
